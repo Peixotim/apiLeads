@@ -18,13 +18,17 @@ public class LeadModel {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
     private Long id;
+
     @Column(name="nome")
     private String nome;
+
     @Column(name="areaDeInteresse")
     private String areaDeInteresse;
+
     @Column(name="telefone")
     private int telefone;
+
     @ManyToOne
     @JoinColumn(name = "enterprise_id")
-    private EnterpriseModel enterpriseModels;
+    private EnterpriseModel enterprise;
 }
