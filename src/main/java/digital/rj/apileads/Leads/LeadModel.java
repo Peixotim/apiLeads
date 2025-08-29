@@ -12,7 +12,6 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_leads")
-@EqualsAndHashCode(callSuper = false)
 public class LeadModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -26,7 +25,7 @@ public class LeadModel {
     private String areaDeInteresse;
 
     @Column(name="telefone")
-    private int telefone;
+    private int telefone; // Mudar o tipo de dados para long
 
     @ManyToOne
     @JoinColumn(name = "enterprise_id")

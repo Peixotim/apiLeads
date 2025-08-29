@@ -1,10 +1,10 @@
 package digital.rj.apileads.Enterprise;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import digital.rj.apileads.Leads.LeadModel;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
-import lombok.EqualsAndHashCode;
 import lombok.NoArgsConstructor;
 import java.util.List;
 @Data
@@ -12,7 +12,6 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "tb_enterprise")
-@EqualsAndHashCode(callSuper = false)
 public class EnterpriseModel {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -29,6 +28,7 @@ public class EnterpriseModel {
     private int telefone;
 
     @OneToMany(mappedBy = "enterprise")
-    private List<LeadModel> leadModels; //Aqui é para colocar a lista que recebe
+    @JsonIgnore
+    private List<LeadModel> leadModels; //Aqui é para colocar a lista que recebe no caso empresa recebe leadsModel
 
 }
