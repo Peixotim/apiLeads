@@ -25,4 +25,7 @@ public class LeadService {
         return model.orElseThrow(RuntimeException::new);
     }
 
+    public LeadModel adicionarLead(LeadModel leadModel){
+        return leadRepository.save(leadModel);
+    }
 }

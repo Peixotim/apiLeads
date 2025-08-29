@@ -20,4 +20,10 @@ public class EnterpriseService {
         Optional<EnterpriseModel> model = enterpriseRepository.findById(id);
         return model.orElseThrow(RuntimeException::new);
     }
+
+    public EnterpriseModel enterpriseAdd(EnterpriseModel model){
+        return enterpriseRepository.save(model);
+    }
+
+
 }

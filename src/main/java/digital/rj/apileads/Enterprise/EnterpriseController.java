@@ -1,8 +1,7 @@
 package digital.rj.apileads.Enterprise;
 
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
+
 import java.util.List;
 @RestController
 @RequestMapping("/enterprise")
@@ -20,9 +19,15 @@ public class EnterpriseController {
         return enterpriseService.enterpriseList();
     }
 
-
-    public EnterpriseModel listEnterpriseId(Integer id){
+    @GetMapping("/list/{id}")
+    public EnterpriseModel listEnterpriseId(@PathVariable Integer id){
         return enterpriseService.enterpriseListId(id);
     }
+
+    @PostMapping("/adicionar")
+    public EnterpriseModel enterpriseAdd(EnterpriseModel enterpriseModel){
+        return enterpriseService.enterpriseAdd(enterpriseModel);
+    }
+
 
 }
